@@ -1,0 +1,3416 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "backend-residencial",
+    "version": "0.0.1",
+    "description": "Modelo relacional de ejemplo Estructuras 2",
+    "contact": {
+      "name": "Ivan Cruz",
+      "email": "ivancruzhn@gmail.com"
+    }
+  },
+  "paths": {
+    "/casas/count": {
+      "get": {
+        "x-controller-name": "CasaController",
+        "x-operation-name": "count",
+        "tags": [
+          "CasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Casa.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Casa>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasaController.count"
+      }
+    },
+    "/casas/{id}/habitantes-casas": {
+      "post": {
+        "x-controller-name": "CasaHabitantesCasaController",
+        "x-operation-name": "create",
+        "tags": [
+          "CasaHabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HabitantesCasa"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewHabitantesCasaInCasa"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CasaHabitantesCasaController.create"
+      },
+      "patch": {
+        "x-controller-name": "CasaHabitantesCasaController",
+        "x-operation-name": "patch",
+        "tags": [
+          "CasaHabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa.HabitantesCasa PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "HabitantesCasa.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<HabitantesCasa>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HabitantesCasaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CasaHabitantesCasaController.patch"
+      },
+      "get": {
+        "x-controller-name": "CasaHabitantesCasaController",
+        "x-operation-name": "find",
+        "tags": [
+          "CasaHabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Casa has many HabitantesCasa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HabitantesCasa"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasaHabitantesCasaController.find"
+      },
+      "delete": {
+        "x-controller-name": "CasaHabitantesCasaController",
+        "x-operation-name": "delete",
+        "tags": [
+          "CasaHabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa.HabitantesCasa DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "HabitantesCasa.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<HabitantesCasa>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasaHabitantesCasaController.delete"
+      }
+    },
+    "/casas/{id}/visitas": {
+      "post": {
+        "x-controller-name": "CasaVisitaController",
+        "x-operation-name": "create",
+        "tags": [
+          "CasaVisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Visita"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVisitaInCasa"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CasaVisitaController.create"
+      },
+      "patch": {
+        "x-controller-name": "CasaVisitaController",
+        "x-operation-name": "patch",
+        "tags": [
+          "CasaVisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa.Visita PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Visita.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Visita>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VisitaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CasaVisitaController.patch"
+      },
+      "get": {
+        "x-controller-name": "CasaVisitaController",
+        "x-operation-name": "find",
+        "tags": [
+          "CasaVisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Casa has many Visita",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Visita"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasaVisitaController.find"
+      },
+      "delete": {
+        "x-controller-name": "CasaVisitaController",
+        "x-operation-name": "delete",
+        "tags": [
+          "CasaVisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa.Visita DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Visita.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Visita>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasaVisitaController.delete"
+      }
+    },
+    "/casas/{id}": {
+      "put": {
+        "x-controller-name": "CasaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "CasaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Casa PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Casa"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CasaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "CasaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "CasaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Casa PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CasaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CasaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "CasaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "CasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CasaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Casa.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "CasaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "CasaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Casa DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "CasaController.deleteById"
+      }
+    },
+    "/casas": {
+      "post": {
+        "x-controller-name": "CasaController",
+        "x-operation-name": "create",
+        "tags": [
+          "CasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Casa"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCasa"
+              }
+            }
+          }
+        },
+        "operationId": "CasaController.create"
+      },
+      "patch": {
+        "x-controller-name": "CasaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "CasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Casa.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Casa>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CasaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "CasaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "CasaController",
+        "x-operation-name": "find",
+        "tags": [
+          "CasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Casa model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CasaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Casa.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CasaController.find"
+      }
+    },
+    "/habitantes-casas/count": {
+      "get": {
+        "x-controller-name": "HabitantesCasaController",
+        "x-operation-name": "count",
+        "tags": [
+          "HabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "HabitantesCasa model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "HabitantesCasa.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<HabitantesCasa>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "HabitantesCasaController.count"
+      }
+    },
+    "/habitantes-casas/{id}/casa": {
+      "get": {
+        "x-controller-name": "HabitantesCasaCasaController",
+        "x-operation-name": "getCasa",
+        "tags": [
+          "HabitantesCasaCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa belonging to HabitantesCasa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Casa"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "HabitantesCasaCasaController.getCasa"
+      }
+    },
+    "/habitantes-casas/{id}/residente": {
+      "get": {
+        "x-controller-name": "HabitantesCasaResidenteController",
+        "x-operation-name": "getResidente",
+        "tags": [
+          "HabitantesCasaResidenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Residente belonging to HabitantesCasa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Residente"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "HabitantesCasaResidenteController.getResidente"
+      }
+    },
+    "/habitantes-casas/{id}": {
+      "put": {
+        "x-controller-name": "HabitantesCasaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "HabitantesCasaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "HabitantesCasa PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HabitantesCasa"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "HabitantesCasaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "HabitantesCasaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "HabitantesCasaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "HabitantesCasa PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HabitantesCasaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "HabitantesCasaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "HabitantesCasaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "HabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "HabitantesCasa model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HabitantesCasaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HabitantesCasa.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "HabitantesCasaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "HabitantesCasaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "HabitantesCasaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "HabitantesCasa DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "HabitantesCasaController.deleteById"
+      }
+    },
+    "/habitantes-casas": {
+      "post": {
+        "x-controller-name": "HabitantesCasaController",
+        "x-operation-name": "create",
+        "tags": [
+          "HabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "HabitantesCasa model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HabitantesCasa"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewHabitantesCasa"
+              }
+            }
+          }
+        },
+        "operationId": "HabitantesCasaController.create"
+      },
+      "patch": {
+        "x-controller-name": "HabitantesCasaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "HabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "HabitantesCasa PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "HabitantesCasa.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<HabitantesCasa>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HabitantesCasaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "HabitantesCasaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "HabitantesCasaController",
+        "x-operation-name": "find",
+        "tags": [
+          "HabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of HabitantesCasa model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HabitantesCasaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HabitantesCasa.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "HabitantesCasaController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/residentes/count": {
+      "get": {
+        "x-controller-name": "ResidenteController",
+        "x-operation-name": "count",
+        "tags": [
+          "ResidenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Residente model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Residente.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Residente>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ResidenteController.count"
+      }
+    },
+    "/residentes/{id}/habitantes-casas": {
+      "post": {
+        "x-controller-name": "ResidenteHabitantesCasaController",
+        "x-operation-name": "create",
+        "tags": [
+          "ResidenteHabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Residente model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HabitantesCasa"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewHabitantesCasaInResidente"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ResidenteHabitantesCasaController.create"
+      },
+      "patch": {
+        "x-controller-name": "ResidenteHabitantesCasaController",
+        "x-operation-name": "patch",
+        "tags": [
+          "ResidenteHabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Residente.HabitantesCasa PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "HabitantesCasa.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<HabitantesCasa>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HabitantesCasaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ResidenteHabitantesCasaController.patch"
+      },
+      "get": {
+        "x-controller-name": "ResidenteHabitantesCasaController",
+        "x-operation-name": "find",
+        "tags": [
+          "ResidenteHabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Residente has many HabitantesCasa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HabitantesCasa"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ResidenteHabitantesCasaController.find"
+      },
+      "delete": {
+        "x-controller-name": "ResidenteHabitantesCasaController",
+        "x-operation-name": "delete",
+        "tags": [
+          "ResidenteHabitantesCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Residente.HabitantesCasa DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "HabitantesCasa.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<HabitantesCasa>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ResidenteHabitantesCasaController.delete"
+      }
+    },
+    "/residentes/{id}": {
+      "put": {
+        "x-controller-name": "ResidenteController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ResidenteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Residente PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Residente"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ResidenteController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ResidenteController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ResidenteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Residente PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResidentePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ResidenteController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ResidenteController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ResidenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Residente model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResidenteWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Residente.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ResidenteController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ResidenteController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ResidenteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Residente DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ResidenteController.deleteById"
+      }
+    },
+    "/residentes": {
+      "post": {
+        "x-controller-name": "ResidenteController",
+        "x-operation-name": "create",
+        "tags": [
+          "ResidenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Residente model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Residente"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewResidente"
+              }
+            }
+          }
+        },
+        "operationId": "ResidenteController.create"
+      },
+      "patch": {
+        "x-controller-name": "ResidenteController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ResidenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Residente PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Residente.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Residente>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResidentePartial"
+              }
+            }
+          }
+        },
+        "operationId": "ResidenteController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ResidenteController",
+        "x-operation-name": "find",
+        "tags": [
+          "ResidenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Residente model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResidenteWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Residente.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ResidenteController.find"
+      }
+    },
+    "/visitas/count": {
+      "get": {
+        "x-controller-name": "VisitaController",
+        "x-operation-name": "count",
+        "tags": [
+          "VisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Visita model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Visita.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Visita>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VisitaController.count"
+      }
+    },
+    "/visitas/{id}/casa": {
+      "get": {
+        "x-controller-name": "VisitaCasaController",
+        "x-operation-name": "getCasa",
+        "tags": [
+          "VisitaCasaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Casa belonging to Visita",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Casa"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VisitaCasaController.getCasa"
+      }
+    },
+    "/visitas/{id}": {
+      "put": {
+        "x-controller-name": "VisitaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "VisitaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Visita PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Visita"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VisitaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "VisitaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "VisitaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Visita PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VisitaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VisitaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "VisitaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "VisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Visita model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisitaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Visita.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VisitaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "VisitaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "VisitaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Visita DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VisitaController.deleteById"
+      }
+    },
+    "/visitas": {
+      "post": {
+        "x-controller-name": "VisitaController",
+        "x-operation-name": "create",
+        "tags": [
+          "VisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Visita model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Visita"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVisita"
+              }
+            }
+          }
+        },
+        "operationId": "VisitaController.create"
+      },
+      "patch": {
+        "x-controller-name": "VisitaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "VisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Visita PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Visita.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Visita>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VisitaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "VisitaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "VisitaController",
+        "x-operation-name": "find",
+        "tags": [
+          "VisitaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Visita model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VisitaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Visita.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VisitaController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "HabitantesCasa": {
+        "title": "HabitantesCasa",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "parentesco": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          },
+          "residenteId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewHabitantesCasaInCasa": {
+        "title": "NewHabitantesCasaInCasa",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<HabitantesCasa, 'id'>, 'casaId'>, schemaOptions: { title: 'NewHabitantesCasaInCasa', exclude: [ 'id' ], optional: [ 'casaId' ] })",
+        "properties": {
+          "parentesco": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          },
+          "residenteId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<HabitantesCasa, 'id'>, 'casaId'>"
+      },
+      "HabitantesCasaPartial": {
+        "title": "HabitantesCasaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<HabitantesCasa>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "parentesco": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          },
+          "residenteId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<HabitantesCasa>"
+      },
+      "Visita": {
+        "title": "Visita",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fechaEntrada": {
+            "type": "string"
+          },
+          "fechaSalida": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fechaEntrada",
+          "fechaSalida",
+          "nombre"
+        ],
+        "additionalProperties": false
+      },
+      "NewVisitaInCasa": {
+        "title": "NewVisitaInCasa",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Visita, 'id'>, 'casaId'>, schemaOptions: { title: 'NewVisitaInCasa', exclude: [ 'id' ], optional: [ 'casaId' ] })",
+        "properties": {
+          "fechaEntrada": {
+            "type": "string"
+          },
+          "fechaSalida": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fechaEntrada",
+          "fechaSalida",
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Visita, 'id'>, 'casaId'>"
+      },
+      "VisitaPartial": {
+        "title": "VisitaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Visita>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fechaEntrada": {
+            "type": "string"
+          },
+          "fechaSalida": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Visita>"
+      },
+      "Casa": {
+        "title": "Casa",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "bloque": {
+            "type": "number"
+          },
+          "calle": {
+            "type": "number"
+          },
+          "referencia": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "numero",
+          "bloque",
+          "calle"
+        ],
+        "additionalProperties": true
+      },
+      "NewCasa": {
+        "title": "NewCasa",
+        "type": "object",
+        "description": "(tsType: Omit<Casa, 'id'>, schemaOptions: { title: 'NewCasa', exclude: [ 'id' ] })",
+        "properties": {
+          "numero": {
+            "type": "number"
+          },
+          "bloque": {
+            "type": "number"
+          },
+          "calle": {
+            "type": "number"
+          },
+          "referencia": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "numero",
+          "bloque",
+          "calle"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Casa, 'id'>"
+      },
+      "VisitaWithRelations": {
+        "title": "VisitaWithRelations",
+        "type": "object",
+        "description": "(tsType: VisitaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "fechaEntrada": {
+            "type": "string"
+          },
+          "fechaSalida": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          },
+          "casa": {
+            "$ref": "#/components/schemas/CasaWithRelations"
+          }
+        },
+        "required": [
+          "fechaEntrada",
+          "fechaSalida",
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "VisitaWithRelations"
+      },
+      "ResidenteWithRelations": {
+        "title": "ResidenteWithRelations",
+        "type": "object",
+        "description": "(tsType: ResidenteWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "identificacion": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "number"
+          },
+          "habitantesCasas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HabitantesCasaWithRelations"
+            }
+          }
+        },
+        "required": [
+          "identificacion",
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ResidenteWithRelations"
+      },
+      "HabitantesCasaWithRelations": {
+        "title": "HabitantesCasaWithRelations",
+        "type": "object",
+        "description": "(tsType: HabitantesCasaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "parentesco": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          },
+          "residenteId": {
+            "type": "string"
+          },
+          "casa": {
+            "$ref": "#/components/schemas/CasaWithRelations"
+          },
+          "residente": {
+            "$ref": "#/components/schemas/ResidenteWithRelations"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "HabitantesCasaWithRelations"
+      },
+      "CasaWithRelations": {
+        "title": "CasaWithRelations",
+        "type": "object",
+        "description": "(tsType: CasaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "bloque": {
+            "type": "number"
+          },
+          "calle": {
+            "type": "number"
+          },
+          "referencia": {
+            "type": "string"
+          },
+          "visitas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VisitaWithRelations"
+            }
+          },
+          "habitantesCasas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HabitantesCasaWithRelations"
+            }
+          }
+        },
+        "required": [
+          "numero",
+          "bloque",
+          "calle"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "CasaWithRelations"
+      },
+      "CasaPartial": {
+        "title": "CasaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Casa>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "number"
+          },
+          "bloque": {
+            "type": "number"
+          },
+          "calle": {
+            "type": "number"
+          },
+          "referencia": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Casa>"
+      },
+      "Residente": {
+        "title": "Residente",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "identificacion": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "identificacion",
+          "nombre"
+        ],
+        "additionalProperties": false
+      },
+      "NewHabitantesCasa": {
+        "title": "NewHabitantesCasa",
+        "type": "object",
+        "description": "(tsType: Omit<HabitantesCasa, 'id'>, schemaOptions: { title: 'NewHabitantesCasa', exclude: [ 'id' ] })",
+        "properties": {
+          "parentesco": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          },
+          "residenteId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<HabitantesCasa, 'id'>"
+      },
+      "NewHabitantesCasaInResidente": {
+        "title": "NewHabitantesCasaInResidente",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<HabitantesCasa, 'id'>, 'residenteId'>, schemaOptions: { title: 'NewHabitantesCasaInResidente', exclude: [ 'id' ], optional: [ 'residenteId' ] })",
+        "properties": {
+          "parentesco": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          },
+          "residenteId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<HabitantesCasa, 'id'>, 'residenteId'>"
+      },
+      "NewResidente": {
+        "title": "NewResidente",
+        "type": "object",
+        "description": "(tsType: Omit<Residente, 'id'>, schemaOptions: { title: 'NewResidente', exclude: [ 'id' ] })",
+        "properties": {
+          "identificacion": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "identificacion",
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Residente, 'id'>"
+      },
+      "ResidentePartial": {
+        "title": "ResidentePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Residente>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "identificacion": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Residente>"
+      },
+      "NewVisita": {
+        "title": "NewVisita",
+        "type": "object",
+        "description": "(tsType: Omit<Visita, 'id'>, schemaOptions: { title: 'NewVisita', exclude: [ 'id' ] })",
+        "properties": {
+          "fechaEntrada": {
+            "type": "string"
+          },
+          "fechaSalida": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "casaId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fechaEntrada",
+          "fechaSalida",
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Visita, 'id'>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Casa.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Casa.ScopeFilter"
+      },
+      "Casa.IncludeFilter.Items": {
+        "title": "Casa.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Casa.ScopeFilter"
+          }
+        }
+      },
+      "Casa.Filter": {
+        "type": "object",
+        "title": "Casa.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "bloque": {
+                    "type": "boolean"
+                  },
+                  "calle": {
+                    "type": "boolean"
+                  },
+                  "referencia": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Casa.Fields"
+          },
+          "include": {
+            "title": "Casa.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Casa.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Casa>"
+      },
+      "Casa.Filter1": {
+        "type": "object",
+        "title": "Casa.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Casa.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "numero": {
+                    "type": "boolean"
+                  },
+                  "bloque": {
+                    "type": "boolean"
+                  },
+                  "calle": {
+                    "type": "boolean"
+                  },
+                  "referencia": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Casa.Fields"
+          },
+          "include": {
+            "title": "Casa.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Casa.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Casa>"
+      },
+      "HabitantesCasa.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "HabitantesCasa.ScopeFilter"
+      },
+      "HabitantesCasa.IncludeFilter.Items": {
+        "title": "HabitantesCasa.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/HabitantesCasa.ScopeFilter"
+          }
+        }
+      },
+      "HabitantesCasa.Filter": {
+        "type": "object",
+        "title": "HabitantesCasa.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "parentesco": {
+                    "type": "boolean"
+                  },
+                  "casaId": {
+                    "type": "boolean"
+                  },
+                  "residenteId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "parentesco",
+                    "casaId",
+                    "residenteId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "HabitantesCasa.Fields"
+          },
+          "include": {
+            "title": "HabitantesCasa.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/HabitantesCasa.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<HabitantesCasa>"
+      },
+      "HabitantesCasa.Filter1": {
+        "type": "object",
+        "title": "HabitantesCasa.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "HabitantesCasa.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "parentesco": {
+                    "type": "boolean"
+                  },
+                  "casaId": {
+                    "type": "boolean"
+                  },
+                  "residenteId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "parentesco",
+                    "casaId",
+                    "residenteId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "HabitantesCasa.Fields"
+          },
+          "include": {
+            "title": "HabitantesCasa.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/HabitantesCasa.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<HabitantesCasa>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "Residente.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Residente.ScopeFilter"
+      },
+      "Residente.IncludeFilter.Items": {
+        "title": "Residente.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Residente.ScopeFilter"
+          }
+        }
+      },
+      "Residente.Filter": {
+        "type": "object",
+        "title": "Residente.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "identificacion": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "telefono": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "identificacion",
+                    "nombre",
+                    "telefono"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Residente.Fields"
+          },
+          "include": {
+            "title": "Residente.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Residente.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Residente>"
+      },
+      "Residente.Filter1": {
+        "type": "object",
+        "title": "Residente.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Residente.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "identificacion": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "telefono": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "identificacion",
+                    "nombre",
+                    "telefono"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Residente.Fields"
+          },
+          "include": {
+            "title": "Residente.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Residente.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Residente>"
+      },
+      "Visita.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Visita.ScopeFilter"
+      },
+      "Visita.IncludeFilter.Items": {
+        "title": "Visita.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Visita.ScopeFilter"
+          }
+        }
+      },
+      "Visita.Filter": {
+        "type": "object",
+        "title": "Visita.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "fechaEntrada": {
+                    "type": "boolean"
+                  },
+                  "fechaSalida": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "casaId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "fechaEntrada",
+                    "fechaSalida",
+                    "nombre",
+                    "casaId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Visita.Fields"
+          },
+          "include": {
+            "title": "Visita.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Visita.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Visita>"
+      },
+      "Visita.Filter1": {
+        "type": "object",
+        "title": "Visita.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Visita.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "fechaEntrada": {
+                    "type": "boolean"
+                  },
+                  "fechaSalida": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "casaId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "fechaEntrada",
+                    "fechaSalida",
+                    "nombre",
+                    "casaId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Visita.Fields"
+          },
+          "include": {
+            "title": "Visita.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Visita.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Visita>"
+      }
+    }
+  }
+}
